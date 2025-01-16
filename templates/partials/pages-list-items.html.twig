@@ -1,0 +1,12 @@
+{% extends "partials/pages-list-items.html.twig" %}
+
+{% block page_name %}
+    {{ parent() }}
+    
+    {# Only display if it's a modular page #}
+    {% if page.modular() %}
+        <span class="badge module-type-badge">
+            Module Type: {{ page.template|e }}
+        </span>
+    {% endif %}
+{% endblock %}

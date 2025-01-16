@@ -1,0 +1,30 @@
+name: 'Module Type Admin'
+version: 1.0.0
+description: 'shows module type in admin'
+icon: tasks
+author:
+  name: Olivier Zurkirchen
+  email: oz@x02.ch
+homepage: https://x02.ch
+keywords: grav, plugin, projects, gallery
+bugs: https://your-repo-or-website/issues
+license: MIT
+
+# If you have default config settings, put them here
+# For example:
+# enabled: true
+
+# Optional: If you want to define plugin settings for the Admin
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin enabled
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
