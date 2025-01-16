@@ -1,8 +1,11 @@
 {% extends "partials/pages-list-items.html.twig" %}
 
 {% block page_name %}
+
+    <p style="color: red;">TEST OVERRIDE - If you see this, the override is working.</p>
     {{ parent() }}
-    
+    <p style="color: red;">TEST OVERRIDE2</p>
+
     {# Only display if it's a modular page #}
     {% if page.modular() %}
         <span class="badge module-type-badge">

@@ -12,7 +12,7 @@ class ModuleTypeAdminPlugin extends Plugin
     {
         return [
             'onPluginsInitialized'      => ['onPluginsInitialized', 0],
-            'onAdminTwigTemplatePaths'  => ['onAdminTwigTemplatePaths', 0],
+            'onAdminTwigTemplatePaths'  => ['onAdminTwigTemplatePaths', 100],
         ];
     }
 
@@ -20,9 +20,10 @@ class ModuleTypeAdminPlugin extends Plugin
      * Initialize plugin - only run in admin to avoid overhead on the frontend
      */
     public function onPluginsInitialized()
-    {
+    {   
+
         // Only proceed if we are in the Admin plugin
-        if (!$this->isAdmin()) {
+        if (!$this->isAdmin()) {            
             return;
         }
 
@@ -34,10 +35,12 @@ class ModuleTypeAdminPlugin extends Plugin
      */
     public function onAdminTwigTemplatePaths($event)
     {
+        
         // Merge our plugin's templates folder into Admin's Twig lookup paths
         $event['paths'] = array_merge(
             $event['paths'],
             [__DIR__ . '/templates']
         );
+
     }
 }
